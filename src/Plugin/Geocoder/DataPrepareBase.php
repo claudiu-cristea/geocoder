@@ -105,7 +105,7 @@ abstract class DataPrepareBase extends GeocoderPluginBase implements DataPrepare
   /**
    * {@inheritdoc}
    */
-  public function prepareValues(array &$values) {
+  public function prepareGeocodeValues(array &$values = array()) {
     $values = $this->setValues($values)->getValues();
     return $this;
   }
@@ -115,7 +115,7 @@ abstract class DataPrepareBase extends GeocoderPluginBase implements DataPrepare
    *
    * @return array
    */
-  public function getPreparedReverseGeocodeValues(array $values = array()) {
+  public function prepareReverseGeocodeValues(array &$values = array()) {
     foreach ($values as $index => $value) {
       list($lat, $lon) = explode(',', trim($value['value']));
       $values[$index] += array(
@@ -124,7 +124,7 @@ abstract class DataPrepareBase extends GeocoderPluginBase implements DataPrepare
       );
     }
 
-    return $values;
+    return $this;
   }
 
   /**
