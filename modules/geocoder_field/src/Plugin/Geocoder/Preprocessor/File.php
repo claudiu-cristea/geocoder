@@ -42,6 +42,7 @@ class File extends PreprocessorBase {
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
+   *
    * @para, \Drupal\Core\File\FileSystemInterface $file_system
    *   The file system service.
    */

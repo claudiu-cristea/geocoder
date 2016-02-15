@@ -68,9 +68,9 @@ class DefaultField extends PluginBase implements GeocoderFieldPluginInterface, C
    * @param \Drupal\geocoder_field\GeocoderFieldPluginManager $field_plugin_manager
    *   The plugin manager for this type of plugins.
    * @param \Drupal\geocoder\DumperPluginManager $dumper_plugin_manager
-   *  The dumper plugin manager service.
+   *   The dumper plugin manager service.
    * @param \Drupal\geocoder\ProviderPluginManager $provider_plugin_manager
-   *  The provider plugin manager service.
+   *   The provider plugin manager service.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, GeocoderFieldPluginManager $field_plugin_manager, DumperPluginManager $dumper_plugin_manager, ProviderPluginManager $provider_plugin_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -127,7 +127,8 @@ class DefaultField extends PluginBase implements GeocoderFieldPluginInterface, C
         'action' => 'order',
         'relationship' => 'sibling',
         'group' => 'plugins-order-weight',
-      ]],
+      ],
+      ],
       '#caption' => $this->t('Select the Geocoder plugins to use, you can reorder them. The first one to return a valid value will be used.'),
     ];
 

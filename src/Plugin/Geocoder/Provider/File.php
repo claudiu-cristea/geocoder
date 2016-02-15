@@ -18,4 +18,4 @@ use Drupal\geocoder\ProviderBase;
  *   handler = "\Drupal\geocoder\Geocoder\Provider\File"
  * )
  */
-class File extends ProviderBase { }
+class File extends ProviderBase {}

@@ -7,8 +7,7 @@
 namespace Drupal\geocoder\Plugin\Geocoder\Provider;
 
 use Drupal\Core\Locale\CountryManager;
-use Drupal\geocoder\Plugin\Geocoder\ProviderBase;
-use Drupal\geocoder\Plugin\Geocoder\ProviderInterface;
+use Drupal\geocoder\ProviderBase;
 use Geocoder\Model\AddressFactory;
 
 /**
@@ -16,10 +15,11 @@ use Geocoder\Model\AddressFactory;
  *
  * @GeocoderProvider(
  *  id = "random",
- *  name = "Random"
+ *  name = "Random",
+ *  handler = "\Drupal\geocoder\Geocoder\Provider\Random"
  * )
  */
-class Random extends ProviderBase implements ProviderInterface {
+class Random extends ProviderBase {
   /**
    * @var AddressFactory
    */
@@ -28,14 +28,8 @@ class Random extends ProviderBase implements ProviderInterface {
   /**
    *
    */
-  public function init() {
-    $this->factory = new AddressFactory();
-  }
-
-  /**
-   *
-   */
   public function geocode($data) {
+    $this->factory = new AddressFactory();
     $cid = $this->getCacheCid($data);
 
     if ($value = $this->cache_get($cid)) {

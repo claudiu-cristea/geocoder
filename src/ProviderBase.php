@@ -52,7 +52,7 @@ abstract class ProviderBase extends PluginBase implements ProviderInterface, Con
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory service.
    * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
-   *  The cache backend used to cache geocoding data.
+   *   The cache backend used to cache geocoding data.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, ConfigFactoryInterface $config_factory, CacheBackendInterface $cache_backend) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -100,7 +100,7 @@ abstract class ProviderBase extends PluginBase implements ProviderInterface, Con
    * @return \Geocoder\Model\Address|null
    */
   protected function process($method, array $data) {
-    if ($caching = $this->configFactory->get('geocoding.settings')->get('cache')) {
+    if ($caching = $this->configFactory->get('geocoder.settings')->get('cache')) {
       // Try to retrieve from cache first.
       $cid = $this->getCacheId($method, $data);
       if ($cache = $this->cacheBackend->get($cid)) {
